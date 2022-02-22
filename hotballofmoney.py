@@ -28,10 +28,8 @@ def returns_df(asset_prices_df):
     @return: pd.DataFrame
         pandas dataframe with asset returns
     """
-    end = datetime.today()
-    start = end - timedelta(90)
-    end_date = end.strftime(format='%Y-%m-%d')  # noqa
-    start_date = start.strftime(format='%Y-%m-%d')  # noqa
+    end = asset_prices_df.index[-1]
+    end_date = end.strftime('%Y-%m-%d')
 
     # Compute returns over specified period
     seven_day = (end - timedelta(7)).strftime('%Y-%m-%d')
